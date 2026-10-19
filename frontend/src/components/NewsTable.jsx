@@ -2,36 +2,36 @@ import React from 'react';
 
 const CATEGORY_STYLES = {
   'การศึกษา': 'bg-purple-50 text-purple-700 border-purple-200',
-  'เทคโนโลยี': 'bg-blue-50 text-blue-700 border-blue-200',
+  'เทคโนโลยี': 'bg-[#C0E4F6]/70 text-tropical-950 border-tropical-300 font-semibold',
   'สังคม': 'bg-emerald-50 text-emerald-700 border-emerald-200'
 };
 
 export default function NewsTable({ newsList, loading, onEdit, onDelete, onViewDetail }) {
   if (loading) {
     return (
-      <div className="bg-white p-16 text-center rounded-xl shadow-sm border border-slate-200">
-        <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent mb-3"></div>
-        <p className="text-slate-500 font-medium text-sm">กำลังโหลดข้อมูลข่าวสาร...</p>
+      <div className="bg-white p-16 text-center rounded-2xl shadow-sm border border-tropical-200">
+        <div className="inline-block animate-spin rounded-full h-10 w-10 border-4 border-tropical-500 border-t-transparent mb-3"></div>
+        <p className="text-tropical-700 font-medium text-sm">กำลังโหลดข้อมูลข่าวสาร...</p>
       </div>
     );
   }
 
   if (!newsList || newsList.length === 0) {
     return (
-      <div className="bg-white p-16 text-center rounded-xl shadow-sm border border-slate-200">
+      <div className="bg-white p-16 text-center rounded-2xl shadow-sm border border-tropical-200">
         <div className="text-4xl mb-3">📭</div>
-        <h3 className="text-base font-bold text-slate-700 mb-1">ไม่พบข้อมูลข่าวสาร</h3>
-        <p className="text-slate-400 text-sm">ยังไม่มีรายการข่าว หรือไม่มีข้อมูลที่ตรงกับเงื่อนไขการค้นหา</p>
+        <h3 className="text-base font-bold text-tropical-900 mb-1">ไม่พบข้อมูลข่าวสาร</h3>
+        <p className="text-tropical-600/70 text-sm">ยังไม่มีรายการข่าว หรือไม่มีข้อมูลที่ตรงกับเงื่อนไขการค้นหา</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-sm border border-tropical-200 overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider">
+            <tr className="bg-tropical-100/70 border-b border-tropical-200 text-tropical-900 text-xs font-bold uppercase tracking-wider">
               <th className="py-3.5 px-4 w-16">#</th>
               <th className="py-3.5 px-4">หัวข้อข่าว</th>
               <th className="py-3.5 px-4">ผู้สื่อข่าว</th>
@@ -80,7 +80,7 @@ export default function NewsTable({ newsList, loading, onEdit, onDelete, onViewD
                     <button
                       type="button"
                       onClick={() => onViewDetail(item)}
-                      className="px-2.5 py-1 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md font-medium transition"
+                      className="px-2.5 py-1 text-xs bg-tropical-100 hover:bg-tropical-200 text-tropical-900 rounded-md font-semibold transition border border-tropical-200"
                       title="ดูรายละเอียด"
                     >
                       รายละเอียด
@@ -110,8 +110,8 @@ export default function NewsTable({ newsList, loading, onEdit, onDelete, onViewD
           </tbody>
         </table>
       </div>
-      <div className="p-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 flex justify-between items-center px-4">
-        <span>จำนวนข่าวทั้งหมด: <strong>{newsList.length}</strong> รายการ</span>
+      <div className="p-3 bg-tropical-50/60 border-t border-tropical-200 text-xs text-tropical-800 flex justify-between items-center px-4">
+        <span>จำนวนข่าวทั้งหมด: <strong className="text-tropical-900">{newsList.length}</strong> รายการ</span>
       </div>
     </div>
   );

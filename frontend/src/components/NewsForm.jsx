@@ -94,13 +94,13 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+    <div className="bg-white p-6 rounded-2xl shadow-sm border border-tropical-200 mb-8">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+        <h2 className="text-lg font-bold text-tropical-900 flex items-center gap-2">
           {editingNews ? '📝 แก้ไขข้อมูลข่าวสาร' : '➕ เพิ่มข่าวสารใหม่'}
         </h2>
         {editingNews && (
-          <span className="text-xs bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-1 rounded-full font-medium">
+          <span className="text-xs bg-tropical-100 text-tropical-900 border border-tropical-300 px-3 py-1 rounded-full font-semibold">
             กำลังแก้ไขข่าว ID: {editingNews.id}
           </span>
         )}
@@ -123,9 +123,9 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* หัวข้อข่าว */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
+            <label className="block text-sm font-semibold text-tropical-900 mb-1">
               หัวข้อข่าว <span className="text-red-500">*</span>
-              <span className="text-xs font-normal text-slate-400 ml-1">({formData.title.length}/150)</span>
+              <span className="text-xs font-normal text-tropical-600/70 ml-1">({formData.title.length}/150)</span>
             </label>
             <input
               type="text"
@@ -134,15 +134,15 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
               onChange={handleChange}
               maxLength={150}
               placeholder="ระบุหัวข้อข่าว..."
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 placeholder-tropical-400 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
             />
           </div>
 
           {/* ผู้สื่อข่าว */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
+            <label className="block text-sm font-semibold text-tropical-900 mb-1">
               ผู้สื่อข่าว <span className="text-red-500">*</span>
-              <span className="text-xs font-normal text-slate-400 ml-1">({formData.reporter.length}/100)</span>
+              <span className="text-xs font-normal text-tropical-600/70 ml-1">({formData.reporter.length}/100)</span>
             </label>
             <input
               type="text"
@@ -151,7 +151,7 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
               onChange={handleChange}
               maxLength={100}
               placeholder="ระบุชื่อผู้สื่อข่าว..."
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 placeholder-tropical-400 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
             />
           </div>
         </div>
@@ -159,14 +159,14 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* หมวดหมู่ */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
+            <label className="block text-sm font-semibold text-tropical-900 mb-1">
               หมวดหมู่ <span className="text-red-500">*</span>
             </label>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
             >
               {CATEGORIES.map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
@@ -176,7 +176,7 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
 
           {/* วันที่เผยแพร่ */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
+            <label className="block text-sm font-semibold text-tropical-900 mb-1">
               วันที่เผยแพร่ <span className="text-red-500">*</span>
             </label>
             <input
@@ -184,20 +184,20 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
               name="publishedDate"
               value={formData.publishedDate}
               onChange={handleChange}
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
             />
           </div>
 
           {/* สถานะ */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
+            <label className="block text-sm font-semibold text-tropical-900 mb-1">
               สถานะ
             </label>
             <select
               name="status"
               value={formData.status ? 'true' : 'false'}
               onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value === 'true' }))}
-              className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+              className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
             >
               <option value="true">✅ เผยแพร่ (Published)</option>
               <option value="false">📝 ฉบับร่าง (Draft)</option>
@@ -207,7 +207,7 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
 
         {/* เนื้อหาข่าว */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-1">
+          <label className="block text-sm font-semibold text-tropical-900 mb-1">
             เนื้อหาข่าว / รายละเอียด
           </label>
           <textarea
@@ -216,24 +216,24 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
             value={formData.description}
             onChange={handleChange}
             placeholder="รายละเอียดเนื้อหาข่าวสารเพิ่มเติม (ถ้ามี)..."
-            className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition"
+            className="w-full px-3.5 py-2 bg-tropical-50/50 border border-tropical-200 rounded-lg text-sm text-tropical-900 placeholder-tropical-400 focus:bg-white focus:ring-2 focus:ring-tropical-400 focus:border-tropical-500 focus:outline-none transition"
           />
         </div>
 
         {/* ปุ่มบันทึก และ ปุ่มยกเลิก (เมื่อแก้ไข) */}
-        <div className="flex gap-3 justify-end pt-2 border-t border-slate-100">
+        <div className="flex gap-3 justify-end pt-3 border-t border-tropical-100">
           {editingNews && (
             <button
               type="button"
               onClick={onCancelEdit}
-              className="px-5 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 font-medium text-sm transition"
+              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 font-medium text-sm transition"
             >
               ยกเลิกการแก้ไข
             </button>
           )}
           <button
             type="submit"
-            className="px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium text-sm transition shadow-sm hover:shadow"
+            className="px-6 py-2.5 rounded-xl bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 text-white font-semibold text-sm transition shadow-md shadow-tropical-200 hover:shadow-lg"
           >
             {editingNews ? 'บันทึกการแก้ไข' : 'บันทึกข่าวใหม่'}
           </button>

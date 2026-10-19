@@ -5,7 +5,7 @@ export default function ConfirmDeleteModal({ news, onConfirm, onCancel }) {
 
   return (
     <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 border border-slate-100">
+      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 border border-tropical-200">
         <div className="flex items-center gap-3 text-red-600 mb-3">
           <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-lg">
             ⚠️
