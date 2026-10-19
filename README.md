@@ -261,3 +261,4 @@ docker compose down
 - **Output Directory**: `dist`
 - **Environment Variables**:
   - `VITE_API_URL`: `[Base URL ของ Render เช่น https://news-api.onrender.com โดยห้ามใส่ /api/news]`
+"# -_674259007_Final_B"  
