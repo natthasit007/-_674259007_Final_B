@@ -3,21 +3,55 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html,
+  body,
+  #root {
     margin: 0;
-    font-family: 'Sarabun', 'TH Sarabun New', 'Prompt', 'Segoe UI', Tahoma, Arial, sans-serif;
-    background-color: #F2F9FD;
+    min-height: 100%;
+    font-family:
+      "Sarabun", "TH Sarabun New", "Prompt", "Segoe UI", Tahoma, Arial,
+      sans-serif;
+    background-color: #f2f9fd;
     color: #0f172a;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ป้องกันตัวหนังสือหายในช่อง Input และ Select โดยไม่กระทบสีของปุ่ม Button */
-  input, select, textarea {
-    font-family: inherit;
-    color: #0f172a;
+  body {
+    min-height: 100vh;
   }
 
-  input::placeholder, textarea::placeholder {
+  /* ป้องกันตัวหนังสือหายในช่อง Input / Select / Button */
+  button,
+  input,
+  select,
+  textarea,
+  option {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  button {
+    -webkit-text-fill-color: currentColor;
+  }
+
+  button[class*="bg-"] {
+    color: #0f172a !important;
+  }
+
+  button.bg-tropical-600,
+  button.bg-tropical-700,
+  button.bg-red-600,
+  button.bg-red-700,
+  button.bg-emerald-600,
+  button.bg-amber-600,
+  button.bg-amber-700,
+  button.bg-emerald-500,
+  button.bg-tropical-500 {
+    color: #ffffff !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
     color: #64748b;
     opacity: 1;
   }

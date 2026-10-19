@@ -210,6 +210,31 @@ npm run dev
 
 ---
 
+### 6.3 วิธีรันทั้งระบบด้วย Docker & Docker Compose 🐳
+สามารถเปิดทั้งฐานข้อมูล PostgreSQL, เซิร์ฟเวอร์ Backend และหน้าเว็บ Frontend พร้อมกันได้ด้วยคำสั่งเดียว:
+
+```bash
+# 1. สั่ง Build และเริ่มต้นคอนเทนเนอร์ทั้งหมดในพื้นหลัง (Background)
+docker compose up -d --build
+
+# 2. ตรวจสอบสถานะคอนเทนเนอร์
+docker compose ps
+
+# 3. ดู Log การทำงานและการ Seed ข้อมูลอัตโนมัติ
+docker compose logs -f backend
+
+# 4. เมื่อต้องการหยุดการทำงาน
+docker compose down
+```
+
+**พอร์ตและทางเข้าใช้งานเมื่อรันด้วย Docker:**
+* 🌐 **Frontend (Web App - Nginx)**: [http://localhost:5173](http://localhost:5173) หรือ [http://localhost](http://localhost)
+* ⚙️ **Backend (API)**: [http://localhost:5000](http://localhost:5000)
+* 🐘 **Database (PostgreSQL 16)**: `localhost:5432` (Username: `postgres`, Password: `postgres`, Database: `news_db`)
+> *หมายเหตุ: ระบบ Docker Compose จะรัน Seeder ใส่ข้อมูลข่าวสาร 10 รายการลงใน PostgreSQL คอนเทนเนอร์ให้อัตโนมัติในครั้งแรกที่เปิดเซิร์ฟเวอร์*
+
+---
+
 ## 7. คู่มือการ Deployment
 
 ### 7.1 การตั้งค่าฐานข้อมูลออนไลน์ (Neon.tech)

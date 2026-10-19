@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-const CATEGORIES = ['การศึกษา', 'เทคโนโลยี', 'สังคม'];
+const CATEGORIES = ["การศึกษา", "เทคโนโลยี", "สังคม"];
 
 export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
   const [formData, setFormData] = useState({
-    title: '',
-    reporter: '',
-    category: 'การศึกษา',
-    publishedDate: new Date().toISOString().split('T')[0],
-    description: '',
-    status: true
+    title: "",
+    reporter: "",
+    category: "การศึกษา",
+    publishedDate: new Date().toISOString().split("T")[0],
+    description: "",
+    status: true,
   });
-  const [validationError, setValidationError] = useState('');
+  const [validationError, setValidationError] = useState("");
 
   // เมื่ออยู่ในโหมดแก้ไข ให้โหลดข้อมูลข่าวเดิมมาใส่ในฟอร์ม
   useEffect(() => {
     if (editingNews) {
       setFormData({
-        title: editingNews.title || '',
-        reporter: editingNews.reporter || '',
-        category: editingNews.category || 'การศึกษา',
-        publishedDate: editingNews.publishedDate || new Date().toISOString().split('T')[0],
-        description: editingNews.description || '',
-        status: editingNews.status ?? true
+        title: editingNews.title || "",
+        reporter: editingNews.reporter || "",
+        category: editingNews.category || "การศึกษา",
+        publishedDate:
+          editingNews.publishedDate || new Date().toISOString().split("T")[0],
+        description: editingNews.description || "",
+        status: editingNews.status ?? true,
       });
-      setValidationError('');
+      setValidationError("");
     } else {
       resetForm();
     }
@@ -32,21 +33,21 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
 
   const resetForm = () => {
     setFormData({
-      title: '',
-      reporter: '',
-      category: 'การศึกษา',
-      publishedDate: new Date().toISOString().split('T')[0],
-      description: '',
-      status: true
+      title: "",
+      reporter: "",
+      category: "การศึกษา",
+      publishedDate: new Date().toISOString().split("T")[0],
+      description: "",
+      status: true,
     });
-    setValidationError('');
+    setValidationError("");
   };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -57,35 +58,35 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
 
     // Validation ฝั่งหน้าเว็บ
     if (!titleTrimmed) {
-      setValidationError('กรุณาระบุหัวข้อข่าว');
+      setValidationError("กรุณาระบุหัวข้อข่าว");
       return;
     }
     if (titleTrimmed.length > 150) {
-      setValidationError('หัวข้อข่าวต้องมีความยาวไม่เกิน 150 ตัวอักษร');
+      setValidationError("หัวข้อข่าวต้องมีความยาวไม่เกิน 150 ตัวอักษร");
       return;
     }
 
     if (!reporterTrimmed) {
-      setValidationError('กรุณาระบุชื่อผู้สื่อข่าว');
+      setValidationError("กรุณาระบุชื่อผู้สื่อข่าว");
       return;
     }
     if (reporterTrimmed.length > 100) {
-      setValidationError('ชื่อผู้สื่อข่าวต้องมีความยาวไม่เกิน 100 ตัวอักษร');
+      setValidationError("ชื่อผู้สื่อข่าวต้องมีความยาวไม่เกิน 100 ตัวอักษร");
       return;
     }
 
     if (!formData.publishedDate) {
-      setValidationError('กรุณาระบุวันที่เผยแพร่');
+      setValidationError("กรุณาระบุวันที่เผยแพร่");
       return;
     }
 
-    setValidationError('');
+    setValidationError("");
 
     onSubmit({
       ...formData,
       title: titleTrimmed,
       reporter: reporterTrimmed,
-      description: formData.description.trim()
+      description: formData.description.trim(),
     });
 
     if (!editingNews) {
@@ -97,7 +98,7 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
     <div className="bg-white p-6 rounded-2xl shadow-sm border-2 border-[#C0E4F6] mb-8">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-          {editingNews ? '📝 แก้ไขข้อมูลข่าวสาร' : '➕ เพิ่มข่าวสารใหม่'}
+          {editingNews ? "📝 แก้ไขข้อมูลข่าวสาร" : "➕ เพิ่มข่าวสารใหม่"}
         </h2>
         {editingNews && (
           <span className="text-xs bg-[#C0E4F6] text-slate-900 border border-tropical-400 px-3 py-1 rounded-full font-bold">
@@ -109,9 +110,9 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
       {validationError && (
         <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-500 rounded-r text-red-700 text-sm flex items-center justify-between">
           <span className="font-semibold">⚠️ {validationError}</span>
-          <button 
-            type="button" 
-            onClick={() => setValidationError('')} 
+          <button
+            type="button"
+            onClick={() => setValidationError("")}
             className="text-red-400 hover:text-red-600 font-bold ml-2"
           >
             ✕
@@ -125,7 +126,9 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
           <div>
             <label className="block text-sm font-bold text-slate-900 mb-1">
               หัวข้อข่าว <span className="text-red-500">*</span>
-              <span className="text-xs font-normal text-slate-500 ml-1">({formData.title.length}/150)</span>
+              <span className="text-xs font-normal text-slate-500 ml-1">
+                ({formData.title.length}/150)
+              </span>
             </label>
             <input
               type="text"
@@ -142,7 +145,9 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
           <div>
             <label className="block text-sm font-bold text-slate-900 mb-1">
               ผู้สื่อข่าว <span className="text-red-500">*</span>
-              <span className="text-xs font-normal text-slate-500 ml-1">({formData.reporter.length}/100)</span>
+              <span className="text-xs font-normal text-slate-500 ml-1">
+                ({formData.reporter.length}/100)
+              </span>
             </label>
             <input
               type="text"
@@ -168,8 +173,14 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
               onChange={handleChange}
               className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:bg-white focus:ring-2 focus:ring-[#C0E4F6] focus:border-tropical-500 focus:outline-none transition shadow-xs"
             >
-              {CATEGORIES.map(cat => (
-                <option key={cat} value={cat} className="text-slate-900 bg-white">{cat}</option>
+              {CATEGORIES.map((cat) => (
+                <option
+                  key={cat}
+                  value={cat}
+                  className="text-slate-900 bg-white"
+                >
+                  {cat}
+                </option>
               ))}
             </select>
           </div>
@@ -195,12 +206,21 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
             </label>
             <select
               name="status"
-              value={formData.status ? 'true' : 'false'}
-              onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value === 'true' }))}
+              value={formData.status ? "true" : "false"}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  status: e.target.value === "true",
+                }))
+              }
               className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:bg-white focus:ring-2 focus:ring-[#C0E4F6] focus:border-tropical-500 focus:outline-none transition shadow-xs"
             >
-              <option value="true" className="text-slate-900 bg-white">✅ เผยแพร่ (Published)</option>
-              <option value="false" className="text-slate-900 bg-white">📝 ฉบับร่าง (Draft)</option>
+              <option value="true" className="text-slate-900 bg-white">
+                ✅ เผยแพร่ (Published)
+              </option>
+              <option value="false" className="text-slate-900 bg-white">
+                📝 ฉบับร่าง (Draft)
+              </option>
             </select>
           </div>
         </div>
@@ -226,7 +246,7 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
             <button
               type="button"
               onClick={onCancelEdit}
-              style={{ color: '#1e293b' }}
+              style={{ color: "#1e293b" }}
               className="px-5 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-800 font-bold text-sm transition border border-slate-300"
             >
               ✕ ยกเลิกการแก้ไข
@@ -234,14 +254,14 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
           )}
           <button
             type="submit"
-            style={{ color: '#ffffff' }}
-            className={`px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-md hover:shadow-lg text-white ${
+            style={{ color: "#000000" }}
+            className={`px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-md hover:shadow-lg ${
               editingNews
-                ? 'bg-amber-600 hover:bg-amber-700 active:bg-amber-800 shadow-amber-200'
-                : 'bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 shadow-tropical-200'
+                ? "bg-amber-600 hover:bg-amber-700 active:bg-amber-800 shadow-amber-200 text-black"
+                : "bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 shadow-tropical-200 text-black"
             }`}
           >
-            {editingNews ? '💾 บันทึกการแก้ไข' : '➕ บันทึกข่าวใหม่'}
+            {editingNews ? "💾 บันทึกการแก้ไข" : "➕ บันทึกข่าวใหม่"}
           </button>
         </div>
       </form>
