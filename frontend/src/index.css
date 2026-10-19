@@ -4,8 +4,24 @@
 
 body {
   margin: 0;
-  font-family: 'Sarabun', sans-serif;
+  font-family: 'Sarabun', 'TH Sarabun New', 'Prompt', 'Segoe UI', Tahoma, Arial, sans-serif;
   background-color: #F2F9FD;
-  color: #164562;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ป้องกันตัวหนังสือหายในช่อง Input และ Select */
+input, select, textarea, button {
+  font-family: inherit;
+  color: #0f172a;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+select option {
+  color: #0f172a;
+  background-color: #ffffff;
 }

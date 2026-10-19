@@ -18,10 +18,11 @@ export default {
           700: '#14628E',
           800: '#155276',
           900: '#164562',
+          950: '#0e2d42',
         }
       },
       fontFamily: {
-        sans: ['Sarabun', 'sans-serif'],
+        sans: ['Sarabun', 'TH Sarabun New', 'Prompt', 'Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
       }
     },
   },
