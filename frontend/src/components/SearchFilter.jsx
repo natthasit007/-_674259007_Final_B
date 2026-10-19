@@ -47,9 +47,10 @@ export default function SearchFilter({ search, setSearch, category, setCategory,
         <div className="flex gap-2">
           <button
             type="submit"
+            style={{ color: '#ffffff' }}
             className="flex-1 bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition shadow-sm hover:shadow"
           >
-            ค้นหา
+            🔍 ค้นหา
           </button>
           <button
             type="button"

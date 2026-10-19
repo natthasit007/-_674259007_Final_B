@@ -29,6 +29,7 @@ export default function ConfirmDeleteModal({ news, onConfirm, onCancel }) {
           <button
             type="button"
             onClick={onCancel}
+            style={{ color: '#1e293b' }}
             className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-sm font-bold transition border border-slate-300"
           >
             ยกเลิก
@@ -36,9 +37,10 @@ export default function ConfirmDeleteModal({ news, onConfirm, onCancel }) {
           <button
             type="button"
             onClick={() => onConfirm(news.id)}
+            style={{ color: '#ffffff' }}
             className="px-5 py-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white rounded-lg text-sm font-bold transition shadow-sm hover:shadow"
           >
-            ยืนยันการลบ
+            🗑️ ยืนยันการลบ
           </button>
         </div>
       </div>

@@ -226,16 +226,22 @@ export default function NewsForm({ onSubmit, editingNews, onCancelEdit }) {
             <button
               type="button"
               onClick={onCancelEdit}
-              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 font-bold text-sm transition"
+              style={{ color: '#1e293b' }}
+              className="px-5 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 active:bg-slate-400 text-slate-800 font-bold text-sm transition border border-slate-300"
             >
-              ยกเลิกการแก้ไข
+              ✕ ยกเลิกการแก้ไข
             </button>
           )}
           <button
             type="submit"
-            className="px-6 py-2.5 rounded-xl bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 text-white font-bold text-sm transition shadow-md shadow-tropical-200 hover:shadow-lg"
+            style={{ color: '#ffffff' }}
+            className={`px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-md hover:shadow-lg text-white ${
+              editingNews
+                ? 'bg-amber-600 hover:bg-amber-700 active:bg-amber-800 shadow-amber-200'
+                : 'bg-tropical-600 hover:bg-tropical-700 active:bg-tropical-800 shadow-tropical-200'
+            }`}
           >
-            {editingNews ? 'บันทึกการแก้ไข' : 'บันทึกข่าวใหม่'}
+            {editingNews ? '💾 บันทึกการแก้ไข' : '➕ บันทึกข่าวใหม่'}
           </button>
         </div>
       </form>
